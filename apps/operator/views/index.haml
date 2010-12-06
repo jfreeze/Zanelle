@@ -6,7 +6,7 @@
   
   %form{:action => '/update', :method => 'post'}
     / =flash_tag(:notice, :id => 'flash-notice')
-    %h3 Pflugerville
+    %h3 Jollyville
     &nbsp;&nbsp;
     =radio "PV", "open", "Open", @pvoffice
     %br
@@ -14,13 +14,14 @@
     =radio "PV", "lunch", "Lunch", @pvoffice
     %br
     &nbsp;&nbsp; 
-    =radio "PV", "steiner", "Ring at Steiner", @pvoffice
+    =radio "PV", "fourpoints", "Ring at Four Ponts", @pvoffice
     %br
     &nbsp;&nbsp; 
     =radio "PV", "closed", "Closed", @pvoffice
     %br
 
-    %h3 Steiner Ranch
+    %br
+    %h3 Four Points
     &nbsp;&nbsp;
     =radio "SR", "open", "Open", @sroffice
     %br
@@ -28,7 +29,7 @@
     =radio "SR", "lunch", "Lunch", @sroffice
     %br
     &nbsp;&nbsp; 
-    =radio "SR", "pflugerville", "Ring at Plugerville", @sroffice
+    =radio "SR", "jollyville", "Ring at Jollyville", @sroffice
     %br
     &nbsp;&nbsp; 
     =radio "SR", "closed", "Closed", @sroffice
