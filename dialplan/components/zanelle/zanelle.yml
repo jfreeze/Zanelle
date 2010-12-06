@@ -1,0 +1,9 @@
+---
+# Access these values with
+# COMPONENTS.zanelle['base_url']
+asterisk_path: /opt/depot/asterisk-1.4.24.1/sbin/asterisk
+voicemail_dir: /opt/depot/asterisk-1.4.24.1/var/spool/asterisk/voicemail
+ruby_path: /usr/local/bin/ruby
+#base_url: http://127.0.0.1:4000/calls/create/.json
+base_url: http://70.113.58.120:4000/calls/create/rspd.json
+ 

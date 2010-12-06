@@ -1,0 +1,108 @@
+= Phone Markup Language (PhoneML) 
+
+== Form POST Variables
+
+* caller = the caller's phone number (Callerid/ANI)
+* called = the phone number of the call (DNIS)
+* callguid = unique 37 character identifier of the call
+* channeltype = type of call (voice or sms)
+* callerinput = the digit(s) or spoken word(s) from the caller's input
+* callerinputhistory = the digit(s) and spoken word(s) from the caller's input throughout the duration of the call separated by commas
+* callername = reverse phone number lookup returning the name of the caller
+* callerlocation = reverse phone number lookup returning the location (city and state) of the caller
+
+== Speak
+
+*Speak* allows you to speak or read text-to-speech (TTS) sentences and data to the caller.
+
+Optional attributes include:
+
+* bargein = boolean (true/false) - True allows callers to provide input while TTS is speaking. False forces caller to listen to the announcement. Default: true
+* voice = (man/woman) - Reads text in the voice of the gender specified. Default: woman
+* translate = Translates text from one language to another (Optional)
+
+Note: The voice attribute can also be used to specify international dialect voices such as:
+
+* Allison = English Female
+* Soledad = American Spanish Female
+
+Note: The translate attribute can translate words and paragraphs from and to languages using the following format:
+
+* en|es = English to Spanish
+* es|en = Spanish to English
+* en|fr = English to French
+* fr|en = French to English
+* en|it = English to Italian
+* it|en = Italian to English
+* en|de = English to German
+* de|en = German to English
+* en|sv = English to Swedish
+
+== Play
+
+*Play* allows you to play MP3, WAV, or VOX audio files to the caller.
+
+*** Optional attributes include:
+
+* bargein = boolean (true/false) - True allows callers to provide input while audio file is playing. False forces caller to listen to the audio file. Default: true
+
+
+
+
+== Input
+
+*Input* allows you to specify input options (grammars) to collect from the caller. These options can include both numeric touch tone options or words for speech recognition (ASR). Values are separated by commas. If you are interested in allowing the caller to enter or say a string of digits, you may specify free form entry as <input>digits<input>.
+
+*Input* includes an optional action attribute to direct the collected input back to your desired URL for further processing by your application.
+
+
+=== Optional attributes include:
+
+* options = specifies touch tone and speech recognition keyword options to return from caller. Options are separated by commas. Built-in touchtone and voice grammar options include:
+
+* digits - best for collecting a series of digits like a menu prompt or a credit card number
+* boolean - accepts yes/no and dtmf-1/dtmf-2 and returns true/false
+* date - grammar allows for date input in the following format: yyyymmdd (19700518), by either voice or dtmf input
+* currency - voice or dtmf grammar that recognizes currencies given in US dollar and cents amounts, for example, $420.03. The maximum currency setting is $100,000
+* number - voice or dtmf input grammar that recognizes numeric input. Note that the maximum length of detectable digits is '16'
+* phone - grammar will recognize any 10 digit phone number entry, including extensions, via dtmf or voice
+* time - grammar will recognize any standard time value entry via voice or dtmf, including AM and PM values
+* Default: digits (returns any touch tone or spoken digit or string of digits)
+* method = (post/get) - specifies the form method of the response to your application. Default: post
+* Note: you can chain extensions together by referencing the desired extension in the following format - http://teleku.com/tel/extension/number such as http://teleku.com/tel/extension/6
+	
+== Record
+
+*Record* allows you to record an audio file and post it to your desired URL.
+
+=== Optional attributes include:
+
+* beep = boolean (true/false) - Allows you to determine whether to play beep at the beginning of the recording or not. Default: false
+* playback = boolean (true/false) - Allows you to playback the recording to the caller prior to submitting the voice file for processing. Default: false
+* maxlength = specifies the max length of the recording allowed in seconds. Default: 120 seconds
+* maxsilence = specifies the max length of silence allowed in seconds before ending the recording. Default: 5 seconds
+* Note: You can email your audio file to by including "mailto:" in front of your email address as the target address. Ninja audio files are delivered as 8kHz mono ulaw (a.k.a. G7.11) format while Samurai delivers the audio in a standard WAV format.
+
+
+== Transfer
+
+*Transfer* allows you to transfer the call to another number. Note: ";postd=ppp1234" or simply "x" can be added to the dial string to represent pauses in dialing.
+
+== Goto
+
+*Goto allows you redirect the flow of the voice application to another URL for processing.
+
+* Optional attributes include:
+
+* method = (post/get) - specifies the form method of the response to your application. Default: post
+* Note: you can chain extensions together by referencing the desired extension in the following format - 
+
+== Hangup
+
+*Hangup* disconnects the call. You may specify a URL of your application to call for processing within the <Hangup> tags.
+
+* Optional attributes include:
+
+* method = (post/get) - specifies the form method of the response to your application. Default: post
+* Note: you can chain extensions together by referencing the desired extension in the following format - 
+
