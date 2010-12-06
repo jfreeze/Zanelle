@@ -1,0 +1,66 @@
+@import "blueprint";
+@import "compass/css3";
+@import "compass/utilities";
+
+@include blueprint;
+
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+
+$blueprint-grid-columns: 24;
+$blueprint-container-size: 950px;
+$blueprint-grid-margin: 10px;
+
+// Use this to calculate the width based on the total width.
+// Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+// COLORS
+$main-body-background: #AC9777;
+$main-page-background: #e9e9e9;
+$panel-background: #eee;
+$menu-color: #dedede;
+$default-page-border-radius: 10px;
+
+$panel-border-radius: 5px;
+$panel-box-shadow-color: #dedede;
+
+// BANNER
+$window-banner-background: white;
+$window-banner-height: 100px;
+
+// FOOTER
+$footer-color: white;
+
+// SIZES
+$page-shadow-h-offset: 2px; 
+$page-shadow-v-offset: 2px;
+$page-box-shadow-color: #666;
+
+$panel-shadow-h-offset: 2px; 
+$panel-shadow-v-offset: 2px;
+$panel-box-shadow-color: #dedede;
+
+@mixin border-top-radius($radius: $default-page-border-radius) {
+  @include border-corner-radius(top, left, $radius); 
+  @include border-corner-radius(top, right, $radius);
+  }
+
+@mixin border-bottom-radius($radius: $default-page-border-radius) {
+  @include border-corner-radius(bottom, left, $radius); 
+  @include border-corner-radius(bottom, right, $radius); 
+  }
+
+@mixin page-box-shadow {
+  @include box-shadow($page-box-shadow-color,
+    $page-shadow-h-offset, 
+    $page-shadow-v-offset,
+    20px);  
+}
+
+@mixin panel-box-shadow {
+  @include box-shadow($panel-box-shadow-color, 
+    $panel-shadow-h-offset, 
+    $panel-shadow-v-offset,
+    5px);  
+}

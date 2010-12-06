@@ -1,0 +1,39 @@
+!!!
+%html{ :lang => "en" }
+  %head
+    <meta content="text/html; charset=utf-8", http-equiv="Content-Type">
+    %title= @title
+    %link{:href=>"/stylesheets/screen.css", :media=>"screen, projection", :rel=>"stylesheet", :type=>"text/css"}
+    %link{:href=>"/stylesheets/print.css",  :media=>"print",              :rel=>"stylesheet", :type=>"text/css"}
+    %link{:href=>"/stylesheets/buttons.css", :media=>"screen, projection", :rel=>"stylesheet", :type=>"text/css"}
+    %link{:href=>"/stylesheets/application.css", :media=>"screen, projection", :rel=>"stylesheet", :type=>"text/css"}
+
+    %script{:type=>"text/javascript", :src=>"/javascripts/jquery-1.4.3.min.js"}
+    %script{:type=>"text/javascript", :src=>"/javascripts/jquery.metadata.js"}
+    %script{:type=>"text/javascript", :src=>"http://github.com/malsup/media/raw/master/jquery.media.js?v0.92"}
+    
+  %body
+    .container
+      .prepend-2.span-20.append-2.last
+        .menu
+          %a{:href=>"/"} HOME
+          &nbsp;&nbsp;|&nbsp;&nbsp; 
+          %a{:href=>"/info"} INFO
+          &nbsp;&nbsp;|&nbsp;&nbsp; 
+          %a{:href=>"/messages"} MESSAGES
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a{:href=>"/voicemail"} VOICEMAIL
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a{:href=>"/admin"} ADMIN
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          %a{:href=>"/help"} HELP
+        
+        .span-20.last.page
+          =yield
+        .span-20.last.page
+      .prepend-2.span-20.append-2.last.xfooter
+        .push-1.span-9
+          Total Practice IT
+        .span-9.right.last
+          Austin, TX 512 371-6838
+

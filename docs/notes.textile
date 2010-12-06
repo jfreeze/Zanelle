@@ -1,0 +1,16 @@
+
+Fixed Data
+/opt/depot/asterisk/
+/opt/depot/asterisk/var/lib/asterisk/moh
+/home/PlcmSpIp/
+
+/opt/depot/dialplan (ahn app)
+  gem install dialplan
+
+/opt/depot/phone-controller  - git pull origin master
+
+
+def get_ring_set(n)
+  file = File.join(File.expand_path(File.dirname(__FILE__)), "ring_set_#{n}")+'.yml'
+  YAML.load(File.read(file))
+end

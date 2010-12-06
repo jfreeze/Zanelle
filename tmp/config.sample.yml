@@ -1,0 +1,6 @@
+--- 
+:asterisk: 
+  :asterisk: /opt/depot/asterisk-1.4.24.1/sbin/asterisk
+  :voicemail_dir: /opt/depot/asterisk-1.4.24.1/var/spool/asterisk/voicemail
+  
+  

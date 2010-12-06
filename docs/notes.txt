@@ -1,0 +1,102 @@
+h2. Database Tables
+
+* CallHandlerGroup
+** name
+* CallHandler
+** name
+** call_handler_group_id
+
+DiDs
+** number
+** call_handler_group_id
+
+h2. Determining Call Handler
+
+Call handlers are members of a call hander group.
+
+* Which CHG depends on call context and DNID.
+* Which CH depends if CH selection is manual or automatic.
+** If Manual, then just choose the active CH.
+** If automatic, then System State determines which CH to use.
+*** System State is based upon Time
+
+Call Handlers may also have components that have state, such as doctor-on-call.
+
+Can CH be shared across different CHG's? Do we copy or select CH for a CHG from a list of CH's.
+
+Call Handler Components/Commands
+
+== Dial
+*  arguments: [[type,ext],...]
+*  options:
+** tT
+** kK
+** rR
+** duration
+** callerid
+
+== Play
+* arguments: fiilename
+* options:
+
+== Record
+*  arguments: file
+*  options: 2 options
+
+== Monitor
+*  arguments: 
+*  options: 
+
+
+Office Scenarios
+
+                  Single Ring Center    2 Ring Centers
+Single Inbound          Jovan (I)        Nelson, RSPD (II)
+Dual Inbound          Backoffice (III)        CTSA (IV)
+
+Index contains a listing of all offices (friendly offices)
+Each office also has its own page.
+If you don't want to have all offices visible on a single page, then that page is removed.
+
+profile file name is a asterisk db variable, a file name, and a ruby symbol.
+
+single inbound: single office state 
+dual inbound: dual office state
+
+
+/<rc name>
+
+
+= Defining State
+  I   - <rc name> state
+  II  - ??
+  III - n/a
+  IV  - <rc name> state
+  
+= Admin -  RingCenter
+  Ring Center
+    Name
+      + Add External/Inbound Number
+        Number
+      + Add Ring Set
+        name
+        extension group
+        
+  + Add Ring Center
+  
+= Extensions - Extension
+  + Add Extension Group
+    Name
+      + Add extension
+        number
+        
+= Message Set - MessageSet
+    Name
+      + Add Message
+        Name
+        Text
+        Record Message
+  +Add Message Set
+  
+= Phone Tree
+  +Add Phone Tree

@@ -1,0 +1,62 @@
+---
+:title: Dr Office A
+:extension_sets:
+- :name: ring_set_2
+  :duration: 20
+  :extensions:
+  - 523
+  - 524
+  - 500
+- :name: ring_set_1
+  :duration: 20
+  :extensions:
+  - 522
+  - 523
+  - 500
+- :name: main_mailbox
+  :extensions: 
+  - 599
+- :name: 50
+  - 50
+
+:execute_commands:
+  - MusicOnHold
+
+
+:ring_actions:
+  :context: internal
+  - :extension_set 50
+    :action: :execute
+    :target: MusicOnHold
+  - :match !ruby/regexp /^2(\d\d)$/
+    :action: record_message
+  - :match !ruby/regexp /^8(\d\d)$/
+    :action: play_message
+  - :match !ruby/regexp /^[56]\d\d$/
+    :call: [ring_set_1, ring_set_2]
+  
+:mailboxes:
+  - :extension: 599
+    :context: internal
+
+:number_sets:
+  - :name: dids
+    :numbers:
+    - "0721"
+    - "0722"
+    - "0723"
+    - "0724"
+    - "0725"
+    - "0726"
+    - "0727"
+    - "0728"
+    - "0729"
+    - "0730"
+    - "0731"
+    - "0732"
+    - "0733"
+    - "0734"
+    - "0735"
+
+
+

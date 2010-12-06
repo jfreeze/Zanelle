@@ -1,0 +1,213 @@
+@import "partials/_base";
+
+a { outline: 0; }
+
+.mark {
+  border: 1px solid #999
+}
+body {
+  background: $main-body-background;
+  // background-color: $main-body-background;
+}
+
+a.document {
+  text-decoration: none;
+}
+
+.item a {
+  text-decoration: none;
+}
+
+a.visited {
+  color: #fff;
+}
+
+a.delete {
+  color: #f66;
+}
+
+a:visited.plain {
+    border: 0px solid #fff;
+    text-decoration: none;
+}
+a.plain {
+  &:link, &:visited, &:active, &:hover {
+    border: none;
+    text-decoration: none;
+  }
+}
+
+#did_form {
+  margin: 1em;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background: #efefef;
+  border: 1px solid #ccc;
+}
+
+.img {
+  text-align: right;
+}
+
+.item {
+  padding: 3px;
+  display: inline;
+  // text-align: center;
+  background: #f6f6f6;
+  border: 1px solid #4671D5;
+  @include border-corner-radius(top, left, 2px);
+  @include border-corner-radius(top, right, 2px);
+  @include border-corner-radius(bottom, left, 2px); 
+  @include border-corner-radius(bottom, right, 2px); 
+}
+
+.item_hover {
+  padding: 3px;
+  display: inline;
+  color: #000;
+  border: 1px solid #999;
+  background: #f00;
+  background-color: #f00;
+}
+.item_control {
+  display: inline;
+}
+.item_control span {
+  display: none;
+}
+
+.link {
+  vertical-align: middle;
+  height: 120px;
+}
+
+.menu {
+  color: $menu-color;
+  a {
+    font-weight: bold;
+    color: $menu-color;
+  }
+}
+
+.page {
+  padding: 0em 1em;
+  margin-top: 5px;
+
+  // padding-bottom: -20px;
+  background: $main-page-background;
+  @include border-bottom-radius;
+  @include page-box-shadow;
+}
+
+.window-banner {
+  background: $window-banner-background;
+  height: $window-banner-height;
+}
+
+p.input {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.admin-panel {
+  margin-left: 1em;
+  line-height: 2em;
+}
+
+.xfooter {
+  background: $main-body-background;
+  // padding-bottom: -1em
+  color: $footer-color;
+  font-size: 85%;
+  .right {
+    text-align: right;
+  }
+}
+
+.panel {
+  padding: 5px 5px;
+  background: $panel-background;
+  @include border-corner-radius(top, left, $panel-border-radius);
+  @include border-corner-radius(top, right, $panel-border-radius);
+  @include border-corner-radius(bottom, left, $panel-border-radius); 
+  @include border-corner-radius(bottom, right, $panel-border-radius); 
+
+  @include panel-box-shadow;
+}
+
+a.media { 
+  display: block; 
+}
+.media { font-size: small; margin: 25px; width: 100% !important; }
+.media div, div.iframe_caption { font-style: italic; color: #888; }
+.example { padding: 20px; margin: 15px 0px; background: #ffe; clear:left; border: 1px dashed #ccc; text-align: left; }
+
+p.field {
+  // :hover {
+    // padding: 1px 1px 1px 0px;
+    // background-color: #e0e;
+    // color: #000;
+    // @include box-shadow($panel-box-shadow-color, -2px,-2px, 2px);  
+  // }
+}
+
+input#did__pri_number {
+  width: 40px;
+}
+input#did__number {
+  width: 80px;
+}
+input#did__description {
+  width: 400px;
+}
+
+.rborder {
+  border-right: 1px solid #999
+}
+
+p.field {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.real_quiet {
+  color: #aaa;
+}
+
+span.button {
+  padding: 2px;
+  background-color: #e0e0e0;
+  border: 1px solid #aaa;
+  @include border-corner-radius(top, left, 2px);
+  @include border-corner-radius(top, right, 2px);
+  @include border-corner-radius(bottom, left, 2px); 
+  @include border-corner-radius(bottom, right, 2px); 
+}
+
+span.group {
+  padding: 2px;
+  background-color: #e0e0ff;
+  border: 1px solid #6c8cd5;
+  @include border-corner-radius(top, left, 2px);
+  @include border-corner-radius(top, right, 2px);
+  @include border-corner-radius(bottom, left, 2px); 
+  @include border-corner-radius(bottom, right, 2px); 
+}
+
+span.required {
+  color: red;
+}
+
+table {
+  border-collapse: collapse; 
+  border-spacing: 0px 0px;
+  tr {
+    > td {
+      padding: 0px 5px;
+    }
+  }
+}
+
+td.right {
+  text-align: right;
+}

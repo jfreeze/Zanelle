@@ -1,0 +1,18 @@
+# This file is for the "rake" tool which automates project-related tasks. If you need to automate things, you can create
+# a new Rake task here. See http://rake.rubyforge.org for more info.
+
+
+require 'rubygems'
+require 'rake'
+
+def push_to_remote(ip)
+  cmd = "rsync -avP --exclude vendor --exclude \.git --exclude \.gitignore --delete #{File.dirname(__FILE__)} root@#{ip}:/opt/depot/"
+  puts cmd
+  puts `#{cmd}`
+end
+
+desc "Push code to remote Dr Lain asterisk box."
+task :push_to_drlain_remote do
+  ip = '10.100.1.50'
+  push_to_remote ip
+end

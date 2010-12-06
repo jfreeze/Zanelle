@@ -1,0 +1,39 @@
+.control
+  
+  %h2 Phone Controller
+  -if @notice
+    .notice=@notice
+  
+  %form{:action => '/update', :method => 'post'}
+    / =flash_tag(:notice, :id => 'flash-notice')
+    %h3 Pflugerville
+    &nbsp;&nbsp;
+    =radio "PV", "open", "Open", @pvoffice
+    %br
+    &nbsp;&nbsp; 
+    =radio "PV", "lunch", "Lunch", @pvoffice
+    %br
+    &nbsp;&nbsp; 
+    =radio "PV", "steiner", "Ring at Steiner", @pvoffice
+    %br
+    &nbsp;&nbsp; 
+    =radio "PV", "closed", "Closed", @pvoffice
+    %br
+
+    %h3 Steiner Ranch
+    &nbsp;&nbsp;
+    =radio "SR", "open", "Open", @sroffice
+    %br
+    &nbsp;&nbsp; 
+    =radio "SR", "lunch", "Lunch", @sroffice
+    %br
+    &nbsp;&nbsp; 
+    =radio "SR", "pflugerville", "Ring at Plugerville", @sroffice
+    %br
+    &nbsp;&nbsp; 
+    =radio "SR", "closed", "Closed", @sroffice
+    %br
+    %p.input
+      %input{:type=>"submit", :value=>"Update"}
+
+%script{:type=>"text/javascript", :src=>"/javascripts/notice.js"}

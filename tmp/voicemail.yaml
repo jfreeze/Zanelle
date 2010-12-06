@@ -1,0 +1,12 @@
+- :section_name: general
+  :section_default: default.sip.yaml
+  :section_data:
+    :maxmessage: 300
+
+- :section_name: internal
+  :section_data:
+    :699: "1234,Auto,jim@SmileLikeAStar.com,jim@SmileLikeAStar.com,attach=yes"
+
+- :section_name: zonemessages
+  :section_data:
+    :central: America/Chicago|'vm-received' Q 'digits/at' IMp

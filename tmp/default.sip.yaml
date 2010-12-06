@@ -1,0 +1,13 @@
+:type: friend
+:username: <%__FILE__%>
+:mailbox_number: <%__FILE__%>
+:mailbox_context: internal
+:callerid: Rising Stars PD<512 266 7200>
+:secret: "!adgjm"
+:context: internal
+:host: dynamic         ; This device registers with asterisk
+:qualify: yes          ; Qualify peer is no more than 2000ms away
+:nat: no               ; This phone is not natted
+:canreinvite: no       ; Asterisk by default tries to redirect
+:callgroup: 1
+:pickupgroup: 1

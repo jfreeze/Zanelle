@@ -1,0 +1,12 @@
+- :section_name: general
+  :section_default: default.sip.yaml
+  :section_data:
+    :context: default
+    :srvlookup: yes
+    :port: 5060
+    :bindaddr: 0.0.0.0
+    :disallow: all
+    :allow: ulaw
+    :allow: alaw
+    :callgroup: 1
+    :pickupgroup: 1

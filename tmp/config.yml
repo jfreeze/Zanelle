@@ -1,0 +1,12 @@
+--- 
+:server_config: 
+  :asterisk_path: /opt/depot/asterisk-1.4.24.1/sbin/asterisk
+  :voicemail_dir: /opt/depot/asterisk-1.4.24.1/var/spool/asterisk/voicemail
+  :ruby_path: /usr/local/bin/ruby
+:zanelle_config:
+  :base_url: http://70.113.58.120:3000/phoneml/.json
+:user_configs:
+  :file:
+  - rspd.yml
+
+

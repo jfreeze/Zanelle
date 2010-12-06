@@ -1,0 +1,4 @@
+*.log
+log/**
+nohup.out
+.DS_Store

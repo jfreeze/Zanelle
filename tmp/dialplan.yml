@@ -1,0 +1,21 @@
+--- 
+- :name: rs1
+  :required_states:
+    :jv_office: open
+    :fp_office: open
+    :condition: or
+  :numbers: 
+  - "7900"
+  - "8203"
+- :name: rs2
+  :numbers: 
+  - "7900"
+  - "8203"
+- :name: exts
+  :numbers:
+  - "501"
+  - "502"
+  - "503"
+  - "504"
+  - "505"
+

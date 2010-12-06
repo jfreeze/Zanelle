@@ -1,0 +1,184 @@
+.span-20.last.admin-section
+  %h2 Identity
+  .admin-panel
+    %p#identity.field
+      %a.plain{:href=>'#'}
+        %b=@identity
+  
+      %form.hidden#identity_form{:action=>"/identity", :method=>"post"}
+        Identity:
+        %input{:type=>"text", :name=>"identity[name]", :id=>"identity", :value=>@identity}
+        %input{:type=>"submit", :value=>"Update", :name=>"identity[submit]"}
+        %a#identity_cancel{:href=>'#'} Cancel
+  %hr
+
+.span-20.last.admin-section
+  %h2 Call Handler Groups
+  .admin-panel
+
+    Groups:&nbsp;
+    -if @call_handler_groups.empty?
+      None
+    -@call_handler_groups.each do |chg|
+      &nbsp;
+      .item{:class => "chg_#{chg.id}"}
+        %a{:class => 'chg_edit', :href => "#"}=chg.name
+        .item_control
+          %span
+            =%{<a class="delete", href="/chg/delete/#{chg.id}">(x)</a>}
+    
+    %form#chg_form.hidden{:action=>"/call_handler_group", :method=>"post"}
+      %input{:type=>"text", :name=>"chg[name]", :id=>"chg"}
+      %input{:type=>"submit", :value=>"Add", :name=>"chg[submit]", :id=>"chg_submit"}
+      %a#chg_cancel{:href=>'#'} Cancel
+
+    %a.plain{:href=>'#'}
+      %p#chg.field
+        %span.button
+          %b + Add Call Handler Group
+    
+    %hr
+
+.span-20.last.admin-section
+  %h2 External Numbers (DiDs)
+
+  .admin-panel
+
+    -if @dids.empty?
+      None
+    -@dids.sort_by {|d| d.pri_number || '0'}.each_with_index do |did, idx|
+      &nbsp;
+      .item{:class =>  "did_#{did.id}"}
+        %a.did_edit{:href=>'#'}
+          =did.pri_number
+          %span.real_quiet
+            =did.number.gsub(/\s/, '&nbsp;')
+          .item_control
+            %span
+              =%{<a class="delete", href="/did/delete/#{did.id}">(x)</a>}
+      =(idx+1)%5 == 0 ? '<br>' : ''
+      
+    %form#did_form.hidden{:action=>"/did", :method=>"post"}
+      %br
+      %table
+        %tr
+          %td.right
+            %b PRI Number:
+            %span.required *
+          %td
+            %input{:type=>"text", :name=>"did[pri_number]", :id=>"did__pri_number"}
+        %tr
+          %td.right
+            %b Prefix Number:
+          %td
+            %input{:type=>"text", :name=>"did[number]", :id=>"did__number"}
+        %tr
+          %td.right
+            %b Description:
+          %td
+            %input{:type=>"text", :name=>"did[description]", :id=>"did__description"}
+        %tr
+          %td.right
+            %b Handler:
+          %td
+            -@call_handler_groups.each do |chg|
+              %input{:type=>"radio", :name=>"did[call_handler_group_id]", :id=>"did__chg_id_#{chg.id}", :value=>chg.id}
+              =chg.name
+              %br
+      %input{:type=>"submit", :value=>"Add", :name=>"did[submit]", :id=>"did__submit"}
+      %a#did_cancel{:href=>'#'} Cancel
+
+    %a.plain{:href=>'#'}
+      %p#did.field 
+        %span.button
+          %b + Add DiDs
+    
+    %hr
+
+.span-20.last.admin-section
+  %h2 Numbers
+  .admin-panel
+
+    -if @numbers.empty?
+      None
+    -@numbers.sort_by {|num| num.number.to_i }.each_with_index do |number, idx|
+      &nbsp;
+      .item{:class =>  "number_#{number.id}"}
+        %a.number__edit{:href=>'#'}
+          =number.number
+          .item_control
+      =(idx+1)%10 == 0 ? '<br>' : ''
+
+    %form#number__form.hidden{:action=>"/number", :method=>"post"}
+      %br
+      %table
+        %tr
+          %td.right
+            %b Number:
+            %span.required *
+          %td
+            %input{:type=>"text", :name=>"number[number]", :id=>"number__number"}
+        %tr
+          %td.right
+            %b Internal (Sip):
+          %td
+            %input{:type=>"checkbox", :name=>"number[is_sip]", :id=>"number__is_sip"}
+        %tr
+          %td
+          %td
+            %input{:type=>"submit", :value=>"Add", :name=>"number[submit]", :id=>"number__submit"}
+            %a#number__cancel{:href=>'#'} Cancel
+
+    %a.plain{:href=>'#'}
+      %p#numberButton
+        %span.button
+          %b + Add Numbers
+    
+    %hr
+  
+.span-20.last.admin-section
+  %h2 Ring Sets
+  .admin-panel
+
+    -if @ring_sets.empty?
+      None
+    -@ring_sets.sort_by {|rs| rs.name }.each_with_index do |ring_set, idx|
+      &nbsp;
+      .item{:class =>  "ring_set_#{ring_set.id}"}
+        %a.ring_set_edit{:href=>'#'}
+          =ring_set.name
+          .item_control
+      =(idx+1)%5 == 0 ? '<br>' : ''
+
+    %form#ring_set__form.hidden{:action=>"/ring_set", :method=>"post"}
+      %br
+      %table
+        %tr
+          %td.right
+            %b Name:
+            %span.required *
+          %td
+            %input{:type=>"text", :name=>"ring_set[name]", :id=>"ring_set__name"}
+        %tr
+          %td.right
+            %b Numbers:
+          %td
+            -@numbers.each_with_index do |number, idx|
+              %input{:type=>"checkbox", :name=>"number[number]", :id=>"number_#{number.id}"}
+              =number.number
+              =(idx+1)%4 == 0 ? '<br>' : '&nbsp;&nbsp;'
+        %tr
+          %td
+          %td
+            %input{:type=>"submit", :value=>"Add", :name=>"ring_set[submit]", :id=>"ring_set__submit"}
+            %a#ring_set__cancel{:href=>'#'} Cancel
+
+
+    %a.plain{:href=>'#'}
+      %p#ring_set.field
+        %span.button
+          %b + Add Ring Set
+    
+
+
+%script{:type=>"text/javascript", :src=>"/javascripts/admin.js"}
