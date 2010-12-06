@@ -1,3 +1,8 @@
+= Zanelle
+
+This project includes an Adhearsion app and a Sinatra webserver to control a phone system for a small office.
+
+
 TODO: Add instructions for setup
 
 If you wish to use Adhearsion to control Asterisk's dialplan,
