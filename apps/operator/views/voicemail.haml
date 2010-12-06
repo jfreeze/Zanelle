@@ -1,17 +1,8 @@
 
 %h2
-  Pflugerville Voicemail
-  ="(#{@pvmail.size} Msgs)"
--@pvmail.each do |mail|
-  =mail
-  %br
-  %a.media{:href=>"/audio/msg0000.wav"}WAV
-
-
-%h2
-  Steiner Ranch Voicemail
-  ="(#{@srmail.size} Msgs)"
--@srmail.each do |mail|
+  Voicemail
+  ="(#{@vmail.size} Msgs)"
+-@vmail.each do |mail|
   =mail
   %br
 

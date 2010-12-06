@@ -94,7 +94,7 @@ post "/call_handler_group/:id" do
   redirect '/admin'
 end
 
-post "/did" do
+post "/did/:id" do
   add_did(params[:did])
   redirect '/admin'
 end
@@ -148,8 +148,7 @@ post "/update" do
 end
 
 get "/voicemail" do
-  @pvmail = get_vm_stats(615)
-  @srmail = get_vm_stats(599)
+  @vmail = get_vm_stats(599)
   haml :voicemail
 end
 
